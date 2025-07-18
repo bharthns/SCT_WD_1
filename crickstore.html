@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CrickStore - Cricket Gear</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      color: #333;
+    }
+    header {
+      background-color: #0d47a1;
+      color: white;
+      padding: 20px 40px;
+      position: fixed;
+      top: 0; width: 100%; z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: gold;
+      border-bottom: 2px solid gold;
+    }
+    .container {
+      padding-top: 100px;
+      padding: 30px;
+    }
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      border-left: 5px solid #1565c0;
+      padding-left: 15px;
+      color: #0d47a1;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .card p {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    .card button {
+      background-color: #0d47a1;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .card button:hover {
+      background-color: gold;
+      color: black;
+    }
+    .cart, .checkout-form {
+      background: white;
+      margin-top: 40px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .cart h2, .checkout-form h2 {
+      margin-bottom: 15px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    .cart-item input {
+      width: 50px;
+      padding: 5px;
+      margin: 0 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .cart-item button {
+      background: crimson;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .cart-item button:hover {
+      background: darkred;
+    }
+    .billing {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .checkout-form input, .checkout-form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .checkout-form button {
+      background-color: #0d47a1;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .checkout-form button:hover {
+      background-color: gold;
+      color: black;
+    }
+    @media(max-width: 768px) {
+      nav a { margin: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CrickStore</h1>
+  <nav>
+    <a href="#bats">Bats</a>
+    <a href="#balls">Balls</a>
+    <a href="#gear">Accessories</a>
+    <a href="#cart">Cart</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <!-- Bats -->
+  <section id="bats">
+    <h2 class="section-title">Cricket Bats</h2>
+    <div class="products">
+      <div class="card">
+        <img src="https://4.imimg.com/data4/RV/LI/MY-2100883/boundary-xtreme-3-500x500.jpg" alt="SG Bat" />
+        <h3>SG Scorer Bat</h3>
+        <p>₹1499</p>
+        <button onclick="addToCart('SG Scorer Bat', 1499)">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="https://senkathir.net/wp-content/uploads/2020/08/MRF-GRAND-EDITION.jpg" alt="MRF Bat" />
+        <h3>MRF Genius Bat</h3>
+        <p>₹2999</p>
+        <button onclick="addToCart('MRF Genius Bat', 2999)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Balls -->
+  <section id="balls">
+    <h2 class="section-title">Cricket Balls</h2>
+    <div class="products">
+      <div class="card">
+        <img src="https://cdn-d03d5231-5b2e278c.mysagestore.com/cf738e9579802e6b988bb225ca6bc00c/contents/1A1104/1A1104M02-cricket-ball-regulation-front.jpg" alt="Leather Ball" />
+        <h3>Leather Ball</h3>
+        <p>₹399</p>
+        <button onclick="addToCart('Leather Ball', 399)">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="https://www.collinsdictionary.com/images/full/tennisball_249873379_1000.jpg?version=4.0.167" alt="Tennis Ball" />
+        <h3>Lightweight Tennis Ball</h3>
+        <p>₹199</p>
+        <button onclick="addToCart('Tennis Ball', 199)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accessories -->
+  <section id="gear">
+    <h2 class="section-title">Accessories</h2>
+    <div class="products">
+      <div class="card">
+        <img src="https://cricketshop.co.za/wp-content/uploads/2019/05/DSC-INTENSE-PASSION_SKU-100350_100351.jpg" alt="Batting Gloves" />
+        <h3>Batting Gloves</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('Batting Gloves', 799)">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="https://bestcricketstore.com/wp-content/uploads/2022/05/e3fed71b-d958-43c4-ab16-04cfc1cec4cd.jpeg" alt="Cricket Helmet" />
+        <h3>Cricket Helmet</h3>
+        <p>₹1299</p>
+        <button onclick="addToCart('Cricket Helmet', 1299)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart -->
+  <section id="cart" class="cart">
+    <h2>Your Cart</h2>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="billing">Total: ₹<span id="total">0</span></div>
+  </section>
+
+  <!-- Checkout -->
+  <section class="checkout-form">
+    <h2>Shipping Details</h2>
+    <input type="text" id="name" placeholder="Full Name" required />
+    <input type="text" id="address" placeholder="Shipping Address" required />
+    <input type="tel" id="phone" placeholder="Phone Number" required />
+    <select id="payment">
+      <option value="cod">Cash on Delivery</option>
+      <option value="card">Credit/Debit Card</option>
+      <option value="upi">UPI / Google Pay</option>
+    </select>
+    <button onclick="checkout()">Place Order</button>
+  </section>
+
+</div>
+
+<script>
+  let cart = [];
+
+  function addToCart(item, price) {
+    const found = cart.find(c => c.item === item);
+    if (found) {
+      found.qty += 1;
+    } else {
+      cart.push({ item, price, qty: 1 });
+    }
+    displayCart();
+  }
+
+  function displayCart() {
+    const cartItems = document.getElementById('cart-items');
+    let total = 0;
+    cartItems.innerHTML = '';
+    cart.forEach((c, index) => {
+      const itemTotal = c.price * c.qty;
+      cartItems.innerHTML += `
+        <div class="cart-item">
+          <span>${c.item}</span>
+          <input type="number" min="1" value="${c.qty}" onchange="updateQty(${index}, this.value)">
+          <span>₹${itemTotal}</span>
+          <button onclick="removeItem(${index})">Remove</button>
+        </div>`;
+      total += itemTotal;
+    });
+    document.getElementById('total').textContent = total;
+  }
+
+  function updateQty(index, newQty) {
+    newQty = parseInt(newQty);
+    if (newQty >= 1) {
+      cart[index].qty = newQty;
+      displayCart();
+    }
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    displayCart();
+  }
+
+  function checkout() {
+    const name = document.getElementById('name').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const payment = document.getElementById('payment').value;
+    const total = Number(document.getElementById('total').textContent);
+
+    if (name && address && phone && total > 0) {
+      alert(`✅ Thank you ${name}!\nYour order of ₹${total} has been placed.\nPayment mode: ${payment.toUpperCase()}`);
+      cart = [];
+      displayCart();
+    } else {
+      alert("⚠ Please fill all fields and add items to cart.");
+    }
+  }
+</script>
+
+</body>
+</html>
